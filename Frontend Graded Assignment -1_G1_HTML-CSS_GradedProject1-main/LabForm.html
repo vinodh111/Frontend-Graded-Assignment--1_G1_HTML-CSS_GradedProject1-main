@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Form</title>
+    <link rel="stylesheet" href="Labform.css" type="text/css">
+</head>
+<body>
+   <form action="#">
+        <div class="form-container">
+            <div class="lab-form">
+                <div class="sections">1. Your Contact Details</div>
+                <div class="form-main">
+
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" class="textbox" name="fullname" placeholder="Full Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" class="textbox" name="PatientId" placeholder="Patient Id (If Exists)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="tel" class="textbox" name="Contact" placeholder="Contact Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="email" class="textbox" name="Email" placeholder="Email Id" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sections">2. Address Details</div>
+                <div class="form-main">
+
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" class="textbox" name="H-No" placeholder="H-No." required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" class="textbox" name="Street" placeholder="Street" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" class="textbox" name="Area" placeholder="Area" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <span id="dist">District</span><br><br>
+                            <select class="list" id="distlist" title="Choose District">
+                                <option value="">Choose</option>
+                                <option value="District-1">District-111</option>
+                                <option value="District-2">District-22222222</option>
+                                <option value="District-3">District-3333</option>
+                                <option value="District-3">District-4444</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sections">3. Choose the Test Type :</div>
+                <div class="checkbox-div">
+                    <label class="test-type">
+                        <input type="checkbox" id="CBC" name="testype" value="CBC" title="CBC">
+                        <label for="CBC">CBC</label><br>
+                        <input type="checkbox" id="CompleteUrine" name="testype" value="CompleteUrine" title="CompleteUrine">
+                        <label for="CompleteUrine">Complete Urine</label><br>
+                        <input type="checkbox" id="LipidProfile" name="testype" value="LipidProfile" title="LipidProfile">
+                        <label for="LipidProfile">Lipid Profile</label><br>
+                        <input type="checkbox" id="TSH" name="testype" value="TSH" title="TSH">
+                        <label for="TSH">Thyroid Stimulating Hormone</label><br>
+                        <input type="checkbox" id="GlucoseTest" name="testype" value="GlucoseTest" title="GlucoseTest">
+                        <label for="GlucoseTest">Glucose Test</label><br>
+                </div>
+
+                <div class="sections">4. Report Type</div>
+                <div class="radio-div">
+                    <input type="radio" id="hardcopy" name="reportype" value="hardcopy" title="hardcopy">
+                    <label for="hardcopy">Hard Copy</label><br>
+                    <input type="radio" id="softcopy" name="reportype" value="softcopy" title="softcopy">
+                    <label for="softcopy">Soft Copy</label><br>
+                </div>
+
+
+                <div class="sections">5. Select your Comfortable Date and Time
+                </div>
+                <div class="input-box" id="date-time">
+                    <span class="labels">Date-Time</span>
+                        <input type="datetime-local" value="datetime-local" id="formDatetime" title="Click on date picker icon"required>
+                </div>
+            </div>
+            
+            <div class="lab-img">
+                <img src="Images/Lab-Test/lab-test.jpg" alt="Image Description">
+            </div>
+        </div>
+        <div class="final-btns">
+            <button id="btn-reset" type="reset" value="reset">Reset</button>
+            <button id="btn-submit" type="submit" value="submit" onclick="return validate()" method="post">Submit</button>
+        </div>
+    </form>
+    <script>
+
+        function validate() {
+            if (!testypeCheck()) {
+                alert("Choose the Test Type: Check atleast one box without fail!");
+                return false;
+            }
+        }
+
+        function testypeCheck() {
+            var checks = document.getElementsByName('testype');
+            for (var i = 0; i < checks.length; i++) {
+                 if (checks[i].checked) {
+                         return true; 
+                        }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
